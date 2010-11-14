@@ -57,6 +57,10 @@ $(function() {
         update_status();
       });
 
+    $('.memory input').change(function() {
+        update_status();
+      });
+
     $('.state .delay input').change(function() {
         cpu.set_delay($(this).val());
       });
