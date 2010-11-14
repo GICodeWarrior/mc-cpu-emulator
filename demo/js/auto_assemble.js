@@ -18,9 +18,8 @@
       }
 
       if (permalink) {
-        $(permalink).html('<a href="?code=' +
-                          encodeURIComponent($(this).val()) +
-                          '">permalink</a>');
+        var code = encodeURIComponent($(this).val());
+        $(permalink).html('<a href="?code=' + code + '">permalink</a>');
       }
     };
     $(this).change(change_handler);

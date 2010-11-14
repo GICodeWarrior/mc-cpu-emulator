@@ -1,25 +1,35 @@
-#code-input {
+.assembler .code {
   float: left;
   width: 60%;
 }
 
-#assembler-listing {
-  float: left;
-  width: 40%;
-}
-
-#code-input textarea {
+.assembler .code textarea {
   width: 95%;
   height: 15em;
 }
 
-#errors {
+.assembler .listing {
+  float: left;
+  width: 40%;
+}
+
+.assembler .errors {
   clear: both;
+  color: red;
 }
 
 h2, .assembler, .emulator {
   border: 1px solid black;
   padding: 12px;
+}
+
+h2 {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+h3:first-child {
+  margin-top: 0;
 }
 
 .assembler:after, .emulator:after {
@@ -28,44 +38,61 @@ h2, .assembler, .emulator {
   clear: both;
 }
 
-h2 {
-  border-bottom: none;
-  margin-bottom: 0;
+.emulator .col-1 {
+  float: left;
+  width: 50%;
 }
 
-table {
+.emulator .col-2 {
+  margin: 0 5em 0 50%;
+}
+
+.emulator .col-3 {
+  float: right;
+  width: 5em;
+}
+
+.emulator .col-3 h3 {
+  text-align: center;
+}
+
+.emulator .col-1:after, .emulator .col-2:after, .emulator .col-3:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.log {
+  height: 10em;
+  overflow: auto;
+  resize: both;
+  margin-right: 1em;
   border: 1px solid black;
-}
-
-.state, .memory {
-  float: left;
-  width: 40%;
-}
-
-.emulator>.output {
-  float: left;
-  width: 20%;
-}
-
-.emulator>.output div {
-  height: 1em;
-  width: 1em;
-  border: 1px solid white;
-}
-
-.changed {
-  background-color: #FFFF80;
-}
-
-.memory .pc {
-  background-color: #80FF80;
 }
 
 .log :first-child {
   font-weight: bold;
 }
 
-.log {
-  height: 10em;
-  overflow: auto;
+.torches div {
+  height: 1em;
+  width: 1em;
+  border: 1px solid white;
+  margin: 0 auto;
+}
+
+.emulator .registers {
+  border: 1px solid black;
+}
+
+.error {
+  color: red;
+}
+
+.memory .dump .changed {
+  background-color: #FFFF80;
+}
+
+.memory .dump .pc {
+  background-color: #80FF80;
 }

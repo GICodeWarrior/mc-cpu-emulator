@@ -1,7 +1,7 @@
 $(function() {
-    $('#code-input textarea').auto_assemble('#assembler-listing code',
-                                            '#errors',
-                                            '#code-input p');
+    $('.assembler .code textarea').auto_assemble('.assembler .listing code',
+                                                 '.assembler .errors',
+                                                 '.assembler .code p');
 
     var params = {};
     var terms = window.location.search.substring(1).split('&');
@@ -11,8 +11,8 @@ $(function() {
     }
 
     if (params['code']) {
-      $('#code-input textarea').val(params['code']);
-      $('#code-input textarea').trigger('change');
+      $('.assembler .code textarea').val(params['code']);
+      $('.assembler .code textarea').trigger('change');
     }
 
     var pad = function(value, size) {
@@ -29,9 +29,9 @@ $(function() {
 
     var cpu = new CPU();
     var update_status = function() {
-      $('.state .pc input').val(hex(cpu.get_pc()));
-      $('.state .accumulator input').val(hex(cpu.get_accumulator()));
-      $('.state .output input').val(hex(cpu.get_output()));
+      $('.registers .pc input').val(hex(cpu.get_pc()));
+      $('.registers .accumulator input').val(hex(cpu.get_accumulator()));
+      $('.registers .output input').val(hex(cpu.get_output()));
 
       var memory_format = {'html': true};
       memory_format['binary'] = $('.memory .binary').is(':checked');
@@ -41,73 +41,73 @@ $(function() {
 
       for (var i = 0; i < 8; ++i) {
         var color = ((cpu.get_output() & (1 << i)) > 0) ? 'red' : 'black';
-        $('.emulator>.output .x' + i).css('background-color', color);
+        $('.torches .x' + i).css('background-color', color);
       }
     };
 
     $(cpu).bind('error', function(e, message) {
-        $('.state .error').html('<strong>ERROR</strong> ' + message);
+        $('.error').html('<strong>ERROR</strong> ' + message);
         update_status();
       });
 
     $(cpu).bind('step-complete', function(e, opcode, operand) {
-        $('.state .log').prepend(
+        $('.log').prepend(
             '<div>Executed: ' + Opcodes.by_value[opcode] +
             ' ' + hex(operand) + '</div>');
         update_status();
       });
 
-    $('.memory input').change(function() {
-        update_status();
-      });
-
-    $('.state .delay input').change(function() {
+    $('.controls .delay input').change(function() {
         cpu.set_delay($(this).val());
       });
 
-    $('.state .pc button').click(function() {
-        cpu.set_pc(parseInt($('.state .pc input').val(), 16));
+    $('.controls .step').click(function() {
+        cpu.step();
+      });
+
+    $('.controls .run').click(function() {
+        cpu.run();
+      });
+
+    $('.controls .halt').click(function() {
+        cpu.halt();
+      });
+
+    $('.controls .reset').click(function() {
+        cpu.reset();
+        update_status();
+        $('.clear-log').click();
+        $('.error').empty();
+      });
+
+    $('.clear-log').click(function() {
+        $('.log').empty();
+      });
+
+    $('.registers .pc button').click(function() {
+        cpu.set_pc(parseInt($('.registers .pc input').val(), 16));
         update_status();
       });
 
-    $('.state .accumulator button').click(function() {
-        cpu.set_accumulator(parseInt($('.state .accumulator input').val(), 16));
+    $('.registers .accumulator button').click(function() {
+        cpu.set_accumulator(parseInt($('.registers .accumulator input').val(), 16));
         update_status();
       });
 
-    $('.state .output button').click(function() {
+    $('.registers .output button').click(function() {
         cpu.reset_output();
         update_status();
       });
 
-    $('.state .step').click(function() {
-        cpu.step();
-      });
-
-    $('.state .run').click(function() {
-        cpu.run();
-      });
-
-    $('.state .halt').click(function() {
-        cpu.halt();
-      });
-
-    $('.state .reset').click(function() {
-        cpu.reset();
+    $('.memory .options input').change(function() {
         update_status();
-        $('.state .clear-log').click();
-        $('.state .error').empty();
       });
 
     $('.memory .load').click(function() {
         var assembler = new Assembler();
-        assembler.assemble($('#code-input textarea').val());
+        assembler.assemble($('.assembler .code textarea').val());
         cpu.load(assembler.get_machine_code());
         update_status();
-      });
-
-    $('.state .clear-log').click(function() {
-        $('.state .log').empty();
       });
 
     update_status();
