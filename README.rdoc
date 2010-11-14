@@ -1,0 +1,19 @@
+= mc-cpu-emulator
+
+This is an emulator for the Minecraft CPU created by "the1laz".
+http://www.minecraftforum.net/viewtopic.php?f=35&t=69299
+
+Try out the emulator here.
+
+
+== Note on Patches/Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2010 Rusty Burchfield. See LICENSE for details.

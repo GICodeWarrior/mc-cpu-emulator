@@ -1,0 +1,66 @@
+#code-input, #assembler-listing {
+  float: left;
+  width: 50%;
+}
+
+#code-input textarea {
+  width: 75%;
+  height: 15em;
+}
+
+#errors {
+  clear: both;
+}
+
+h2, .assembler, .emulator {
+  border: 1px solid black;
+  padding: 12px;
+}
+
+.assembler:after, .emulator:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+h2 {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+table {
+  border: 1px solid black;
+}
+
+.state, .memory {
+  float: left;
+  width: 40%;
+}
+
+.emulator>.output {
+  float: left;
+  width: 20%;
+}
+
+.emulator>.output div {
+  height: 1em;
+  width: 1em;
+  border: 1px solid white;
+}
+
+.changed {
+  background-color: #FFFF80;
+}
+
+.memory .pc {
+  background-color: #80FF80;
+}
+
+.log :first-child {
+  font-weight: bold;
+}
+
+.log {
+  height: 10em;
+  overflow: auto;
+}

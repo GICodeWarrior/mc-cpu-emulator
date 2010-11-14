@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Minecraft CPU Emulator</title>
+  <link href="css/demo.css" rel="stylesheet" type="text/css" />
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../lib/cpu.js"></script>
+  <script type="text/javascript" src="../lib/assembler.js"></script>
+  <script type="text/javascript" src="../lib/listing.js"></script>
+  <script type="text/javascript" src="../lib/opcodes.js"></script>
+  <script type="text/javascript" src="js/auto_assemble.js"></script>
+  <script type="text/javascript" src="js/interaction.js"></script>
+</head>
+<body>
+  <h1>Minecraft CPU Emulator</h1>
+  <p>
+    This is an emulator for the
+    <a href="http://www.minecraftforum.net/viewtopic.php?f=35&amp;t=69299">Minecraft CPU created by "the1laz".</a>
+  </p>
+  <h2>Asssembler</h2>
+  <div class="assembler">
+    <div id="code-input">
+      <h3>Code Input</h2>
+      <textarea></textarea>
+      <p></p>
+    </div>
+    <div id="assembler-listing">
+      <h3>Binary Listing</h2>
+      <code></code>
+    </div>
+    <ul id="errors">
+    </ul>
+  </div>
+
+  <h2>Emulator</h2>
+  <div class="emulator">
+    <div class="state">
+      <h3>State</h3>
+      <table><tbody>
+        <tr class="pc">
+          <th>PC</th>
+          <td><input type="text" /> <button>Set</button></td>
+        </tr>
+        <tr class="accumulator">
+          <th>Accumulator</th>
+          <td><input type="text" /> <button>Set</button></td>
+        </tr>
+        <tr class="output">
+          <th>Output</th>
+          <td><input type="text" /> <button>Reset</button></td>
+        </tr>
+      </tbody></table>
+      <div class="delay">Delay <input type="text" value="1000"/></div>
+      <button class="step">Step</button>
+      <button class="run">Run</button>
+      <button class="halt">Halt</button>
+      <button class="reset">Reset</button>
+
+      <p class="error"></p>
+
+      <h3>Log</h3>
+      <button class="clear-log">Clear log</button>
+      <div class="log"></div>
+    </div>
+    <div class="output">
+      <div class="x7"></div>
+      <div class="x6"></div>
+      <div class="x5"></div>
+      <div class="x4"></div>
+      <div class="x3"></div>
+      <div class="x2"></div>
+      <div class="x1"></div>
+      <div class="x0"></div>
+    </div>
+    <div class="memory">
+      <h3>Memory</h3>
+      <div>
+        <input type="checkbox" class="binary" /> Binary
+        <input type="checkbox" class="hex" /> Hex
+        <input type="checkbox" class="instructions" checked="checked" /> Instructions
+      </div>
+      <button class="load">Load memory from assembler</button>
+      <code class="dump">
+      </code>
+    </div>
+  </div>
+</body>
+</html>
