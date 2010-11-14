@@ -1,10 +1,15 @@
-#code-input, #assembler-listing {
+#code-input {
   float: left;
-  width: 50%;
+  width: 60%;
+}
+
+#assembler-listing {
+  float: left;
+  width: 40%;
 }
 
 #code-input textarea {
-  width: 75%;
+  width: 95%;
   height: 15em;
 }
 
