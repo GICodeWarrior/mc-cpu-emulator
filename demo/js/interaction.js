@@ -67,14 +67,17 @@ $(function() {
 
     $('.state .pc button').click(function() {
         cpu.set_pc(parseInt($('.state .pc input').val(), 16));
+        update_status();
       });
 
     $('.state .accumulator button').click(function() {
         cpu.set_accumulator(parseInt($('.state .accumulator input').val(), 16));
+        update_status();
       });
 
     $('.state .output button').click(function() {
         cpu.reset_output();
+        update_status();
       });
 
     $('.state .step').click(function() {
