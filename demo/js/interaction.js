@@ -1,5 +1,5 @@
 $(function() {
-    $('.assembler .code textarea').auto_assemble('.assembler .listing code',
+    $('.assembler .code textarea').auto_assemble('.assembler .listing',
                                                  '.assembler .errors',
                                                  '.assembler .code p');
 
@@ -28,16 +28,14 @@ $(function() {
     }
 
     var cpu = new CPU();
+    cpu.set_delay($('.controls .delay input').val());
+
     var update_status = function() {
       $('.registers .pc input').val(hex(cpu.get_pc()));
       $('.registers .accumulator input').val(hex(cpu.get_accumulator()));
       $('.registers .output input').val(hex(cpu.get_output()));
 
-      var memory_format = {'html': true};
-      memory_format['binary'] = $('.memory .binary').is(':checked');
-      memory_format['hex'] = $('.memory .hex').is(':checked');
-      memory_format['named_hex'] = $('.memory .instructions').is(':checked');
-      $('.memory .dump').html(cpu.get_listing().format(memory_format));
+      $('.memory').set_listing(cpu.get_listing());
 
       for (var i = 0; i < 8; ++i) {
         var color = ((cpu.get_output() & (1 << i)) > 0) ? 'red' : 'black';
@@ -80,6 +78,13 @@ $(function() {
         $('.error').empty();
       });
 
+    $('.controls .load').click(function() {
+        var assembler = new Assembler();
+        assembler.assemble($('.assembler .code textarea').val());
+        cpu.load(assembler.get_machine_code());
+        update_status();
+      });
+
     $('.clear-log').click(function() {
         $('.log').empty();
       });
@@ -100,13 +105,6 @@ $(function() {
       });
 
     $('.memory .options input').change(function() {
-        update_status();
-      });
-
-    $('.memory .load').click(function() {
-        var assembler = new Assembler();
-        assembler.assemble($('.assembler .code textarea').val());
-        cpu.load(assembler.get_machine_code());
         update_status();
       });
 

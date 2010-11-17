@@ -14,7 +14,7 @@
       }
 
       if (listing) {
-        $(listing).html(assembler.get_listing().format(listing_format));
+        $(listing).set_listing(assembler.get_listing());
       }
 
       if (permalink) {

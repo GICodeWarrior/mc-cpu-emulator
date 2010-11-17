@@ -10,6 +10,7 @@
   <script type="text/javascript" src="../lib/listing.js"></script>
   <script type="text/javascript" src="../lib/opcodes.js"></script>
   <script type="text/javascript" src="js/auto_assemble.js"></script>
+  <script type="text/javascript" src="js/listing.js"></script>
   <script type="text/javascript" src="js/interaction.js"></script>
 </head>
 <body>
@@ -26,7 +27,12 @@
       <p></p>
     </div>
     <div class="listing">
-      <h3>Listing</h2>
+      <h3>Listing</h3>
+      <div class="options">
+        <input type="checkbox" class="binary" checked="checked" /> Binary
+        <input type="checkbox" class="hex" /> Hex
+        <input type="checkbox" class="instructions" checked="checked" /> Instructions
+      </div>
       <code></code>
     </div>
     <ul class="errors">
@@ -51,11 +57,12 @@
     <div class="col-1">
       <h3>Controls</h3>
       <div class="controls">
-        <div class="delay">Delay <input type="text" value="1000"/></div>
+        <div class="delay">Delay <input type="text" value="250"/></div>
         <button class="step">Step</button>
         <button class="run">Run</button>
-        <button class="halt">Halt</button>
+        <button class="halt">Break</button>
         <button class="reset">Reset</button>
+        <button class="load">Load Code</button>
       </div>
 
       <h3>Log</h3>
@@ -88,9 +95,7 @@
           <input type="checkbox" class="hex" /> Hex
           <input type="checkbox" class="instructions" checked="checked" /> Instructions
         </div>
-        <button class="load">Load memory from assembler</button>
-        <code class="dump">
-        </code>
+        <code></code>
       </div>
     </div>
   </div>
