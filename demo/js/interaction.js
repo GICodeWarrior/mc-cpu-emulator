@@ -33,7 +33,7 @@ $(function() {
     var update_status = function() {
       $('.registers .pc input').val(hex(cpu.get_pc()));
       $('.registers .accumulator input').val(hex(cpu.get_accumulator()));
-      $('.registers .output input').val(hex(cpu.get_output()));
+      $('.registers .output td:first').html(hex(cpu.get_output()));
 
       $('.memory').set_listing(cpu.get_listing());
 
