@@ -8,6 +8,11 @@
   height: 15em;
 }
 
+.assembler .code p {
+  margin: 0 5% 0 0;
+  text-align: right;
+}
+
 .assembler .listing {
   float: left;
   width: 40%;
@@ -18,12 +23,21 @@
   color: red;
 }
 
+.assembler, .emulator {
+  background-color: white;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
 h2, .assembler, .emulator {
   border: 1px solid black;
   padding: 12px;
 }
 
 h2 {
+  background-color: #f2fbff;
   border-bottom: none;
   margin-bottom: 0;
 }
