@@ -1,7 +1,7 @@
 $(function() {
     $('.assembler .code textarea').auto_assemble('.assembler .listing',
                                                  '.assembler .errors',
-                                                 '.assembler .code p');
+                                                 '.assembler .code .permalink');
 
     var params = {};
     var terms = window.location.search.substring(1).split('&');
