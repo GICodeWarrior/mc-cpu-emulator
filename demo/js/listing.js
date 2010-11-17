@@ -22,6 +22,7 @@
   var update_listing = function(me, listing) {
     var format = {'html': true};
 
+    format['address'] = $(me).find(options + '.address').is(':checked');
     format['binary'] = $(me).find(options + '.binary').is(':checked');
     format['hex'] = $(me).find(options + '.hex').is(':checked');
     format['named_hex'] = $(me).find(options + '.instructions').is(':checked');
