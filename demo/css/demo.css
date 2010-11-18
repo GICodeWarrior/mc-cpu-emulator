@@ -82,7 +82,8 @@ h3:first-child {
   clear: both;
 }
 
-.log {
+.log code {
+  display: block;
   height: 10em;
   overflow: auto;
   resize: both;
@@ -90,7 +91,7 @@ h3:first-child {
   border: 1px solid black;
 }
 
-.log :first-child {
+.log code :first-child {
   font-weight: bold;
 }
 

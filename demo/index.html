@@ -12,6 +12,7 @@
   <script type="text/javascript" src="../lib/opcodes.js"></script>
   <script type="text/javascript" src="js/auto_assemble.js"></script>
   <script type="text/javascript" src="js/listing.js"></script>
+  <script type="text/javascript" src="js/log.js"></script>
   <script type="text/javascript" src="js/interaction.js"></script>
 
   <script type="text/javascript">
@@ -83,8 +84,17 @@
       </div>
 
       <h3>Log</h3>
-      <button class="clear-log">Clear log</button>
-      <div class="log"></div>
+      <div class="log">
+        <div class="options">
+          <input type="checkbox" class="pc" /> PC
+          <input type="checkbox" class="accumulator" /> Accumulator
+          <input type="checkbox" class="output" /> Output
+          <input type="checkbox" class="bin-output" checked="checked" /> Binary Output
+          <input type="checkbox" class="instruction" /> Instruction
+          <button class="clear">Clear log</button>
+        </div>
+        <code></code>
+      </div>
     </div>
     <div class="col-2">
       <h3>Registers</h3>

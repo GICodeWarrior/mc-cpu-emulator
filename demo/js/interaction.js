@@ -3,25 +3,13 @@ $(function() {
                                                  '.assembler .errors',
                                                  '.assembler .code .permalink');
 
-    var pad = function(value, size) {
-      while (value.length < size) {
-        value = '0' + value;
-      }
-
-      return value;
-    };
-
-    var hex = function(value) {
-      return pad(value.toString(16), 2);
-    }
-
     var cpu = new CPU();
     cpu.set_delay($('.controls .delay input').val());
 
     var update_status = function() {
-      $('.registers .pc input').val(hex(cpu.get_pc()));
-      $('.registers .accumulator input').val(hex(cpu.get_accumulator()));
-      $('.registers .output td:first').html(hex(cpu.get_output()));
+      $('.registers .pc input').val(Listing.hex(cpu.get_pc()));
+      $('.registers .accumulator input').val(Listing.hex(cpu.get_accumulator()));
+      $('.registers .output td:first').html(Listing.hex(cpu.get_output()));
 
       $('.memory').set_listing(cpu.get_listing());
 
@@ -37,11 +25,10 @@ $(function() {
       });
 
     $(cpu).bind('step-complete', function(e, opcode, operand) {
-        $('.log').prepend(
-            '<div>Executed: ' + Opcodes.by_value[opcode] +
-            ' ' + hex(operand) + '</div>');
         update_status();
       });
+
+    $('.log').enable_log(cpu);
 
     $('.controls .delay input').change(function() {
         cpu.set_delay($(this).val());
@@ -62,7 +49,7 @@ $(function() {
     $('.controls .reset').click(function() {
         cpu.reset();
         update_status();
-        $('.clear-log').click();
+        $('.log .clear').click();
         $('.error').empty();
       });
 
@@ -73,8 +60,8 @@ $(function() {
         update_status();
       });
 
-    $('.clear-log').click(function() {
-        $('.log').empty();
+    $('.log .clear').click(function() {
+        $('.log code').empty();
       });
 
     $('.registers .pc button').click(function() {
