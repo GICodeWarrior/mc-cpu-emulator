@@ -20,12 +20,15 @@
   };
 
   var update_listing = function(me, listing) {
-    var format = {'html': true};
+    var format = {'address': null, 'binary': null, 'hex': null,
+                  'instructions': null};
+    for (var key in format) {
+      if (format.hasOwnProperty(key)) {
+        format[key] = $(me).find(options + '.' + key).is(':checked');
+      }
+    }
+    format['html'] = true;
 
-    format['address'] = $(me).find(options + '.address').is(':checked');
-    format['binary'] = $(me).find(options + '.binary').is(':checked');
-    format['hex'] = $(me).find(options + '.hex').is(':checked');
-    format['named_hex'] = $(me).find(options + '.instructions').is(':checked');
     $(me).find('code').html(listing.format(format));
   };
 })(jQuery);
