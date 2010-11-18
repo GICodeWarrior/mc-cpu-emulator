@@ -4,7 +4,7 @@ This is an emulator for the Minecraft CPU created by "the1laz".
 http://www.minecraftforum.net/viewtopic.php?f=35&t=69299
 
 Try out the emulator here.
-http://gicodewarrior.github.com/mc-cpu-emulator/demo/index.html
+http://gicodewarrior.github.com/mc-cpu-emulator/demo/
 
 == Note on Patches/Pull Requests
 
