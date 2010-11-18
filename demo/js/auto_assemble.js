@@ -1,7 +1,6 @@
 (function($){
   $.fn.auto_assemble = function(listing, error_list, permalink) {
     var assembler = new Assembler();
-    var listing_format = {'html': true, 'binary': true};
 
     var change_handler = function() {
       var errors = assembler.assemble($(this).val());
