@@ -46,10 +46,14 @@
     <div class="listing">
       <h3>Listing</h3>
       <div class="options">
-        <input type="checkbox" class="address" checked="checked" /> Address
-        <input type="checkbox" class="binary" checked="checked" /> Binary
-        <input type="checkbox" class="hex" /> Hex
-        <input type="checkbox" class="instructions" checked="checked" /> Instructions
+        <input type="checkbox" class="address" id="a-l-a" checked="checked" />
+        <label for="a-l-a">Address</label>
+        <input type="checkbox" class="binary" id="a-l-b" checked="checked" />
+        <label for="a-l-b">Binary</label>
+        <input type="checkbox" class="hex" id="a-l-h" />
+        <label for="a-l-h">Hex</label>
+        <input type="checkbox" class="instructions" id="a-l-i" checked="checked" />
+        <label for="a-l-i">Instructions</label>
       </div>
       <code></code>
     </div>
@@ -75,22 +79,30 @@
     <div class="col-1">
       <h3>Controls</h3>
       <div class="controls">
-        <div class="delay">Delay <input type="text" value="250"/></div>
         <button class="step">Step</button>
         <button class="run">Run</button>
         <button class="halt">Stop</button>
         <button class="reset">Reset</button>
         <button class="load">Load Code</button>
+        <div class="delay">
+          <label for="e-c-d">Delay</label>
+          <input id="e-c-d" type="text" value="250"/>
+        </div>
       </div>
 
       <h3>Log</h3>
       <div class="log">
         <div class="options">
-          <input type="checkbox" class="pc" /> PC
-          <input type="checkbox" class="accumulator" /> Accumulator
-          <input type="checkbox" class="output" /> Output
-          <input type="checkbox" class="bin-output" checked="checked" /> Binary Output
-          <input type="checkbox" class="instruction" /> Instruction
+          <input type="checkbox" class="pc" id="e-l-p" />
+          <label for="e-l-p">PC</label>
+          <input type="checkbox" class="accumulator" id="e-l-a" />
+          <label for="e-l-a">Accumulator</label>
+          <input type="checkbox" class="output" id="e-l-o" />
+          <label for="e-l-o">Output</label>
+          <input type="checkbox" class="bin-output" id="e-l-b" checked="checked" />
+          <label for="e-l-b">Binary Output</label>
+          <input type="checkbox" class="instruction" id="e-l-i" />
+          <label for="e-l-i">Instruction</label>
           <button class="clear">Clear log</button>
         </div>
         <code></code>
@@ -100,13 +112,13 @@
       <h3>Registers</h3>
       <table class="registers"><tbody>
         <tr class="pc">
-          <th>PC</th>
-          <td><input type="text" /></td>
+          <th><label for="e-r-p">PC</label></th>
+          <td><input type="text" id="e-r-p" /></td>
           <td><button>Set</button></td>
         </tr>
         <tr class="accumulator">
-          <th>Accumulator</th>
-          <td><input type="text" /></td>
+          <th><label for="e-r-a">Accumulator</label></th>
+          <td><input type="text" id="e-r-a" /></td>
           <td><button>Set</button></td>
         </tr>
         <tr class="output">
@@ -121,10 +133,14 @@
       <h3>Memory</h3>
       <div class="memory">
         <div class="options">
-          <input type="checkbox" class="address" checked="checked" /> Address
-          <input type="checkbox" class="binary" /> Binary
-          <input type="checkbox" class="hex" /> Hex
-          <input type="checkbox" class="instructions" checked="checked" /> Instructions
+          <input type="checkbox" class="address" id="e-m-a" checked="checked" />
+          <label for="e-m-a">Address</label>
+          <input type="checkbox" class="binary" id="e-m-b" />
+          <label for="e-m-b">Binary</label>
+          <input type="checkbox" class="hex" id="e-m-h" />
+          <label for="e-m-h">Hex</label>
+          <input type="checkbox" class="instructions" id="e-m-i" checked="checked" />
+          <label for="e-m-i">Instructions</label>
         </div>
         <code></code>
       </div>
