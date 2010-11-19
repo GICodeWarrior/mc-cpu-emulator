@@ -25,6 +25,46 @@
   color: red;
 }
 
+.assembler .references {
+  padding-top: 1em;
+}
+
+.assembler .references table {
+  font-size: 1.1em;
+  display: inline-block;
+  border-collapse: collapse;
+  border: 1px solid #999;
+}
+
+.assembler .references caption {
+  color: #333;
+}
+
+.assembler .references .reference {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 1em;
+}
+
+.assembler .references th, .assembler .references td {
+  font-family: monospace;
+  text-align: center;
+  border-top: 1px solid #999;
+  padding: 0.1em 0.25em;
+}
+
+.assembler .references th {
+  border-right: 1px solid #999;
+}
+
+.assembler .references .legend td {
+  text-align: left;
+}
+
+.assembler .references .legend td:first-child {
+  text-align: center;
+}
+
 .assembler, .emulator {
   background-color: white;
 }

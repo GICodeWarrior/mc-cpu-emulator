@@ -59,6 +59,66 @@
     </div>
     <ul class="errors">
     </ul>
+    <div class="references">
+      <h3>Instruction Reference</h3>
+      <div class="reference">
+        <div class="reference">
+          <div class="reference">
+            <div class="reference">
+              <table>
+                <caption>Arithmetic</caption>
+                <tbody>
+                  <tr><th>ADDi</th><td>A + I</td><td>&rarr;</td><td>A</td></tr>
+                  <tr><th>SUBi</th><td>A - I</td><td>&rarr;</td><td>A</td></tr>
+                  <tr><th>ADDm</th><td>A + M</td><td>&rarr;</td><td>A</td></tr>
+                  <tr><th>SUBm</th><td>A - M</td><td>&rarr;</td><td>A</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <table>
+              <caption>Logic</caption>
+              <tbody>
+                <tr><th>NOT</th><td>&not;A</td><td>&rarr;</td><td>A</td></tr>
+                <tr><th>ANDi</th><td>A &amp; I</td><td>&rarr;</td><td>A</td></tr>
+                <tr><th>ORi</th><td>A | I</td><td>&rarr;</td><td>A</td></tr>
+                <tr><th>ANDm</th><td>A &amp; M</td><td>&rarr;</td><td>A</td></tr>
+                <tr><th>ORm</th><td>A | M</td><td>&rarr;</td><td>A</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <table>
+            <caption>Data Flow</caption>
+            <tbody>
+              <tr><th>OUT</th><td>A</td><td>&rarr;</td><td>O</td></tr>
+              <tr><th>LOADi</th><td>I</td><td>&rarr;</td><td>A</td></tr>
+              <tr><th>LOADm</th><td>M</td><td>&rarr;</td><td>A</td></tr>
+              <tr><th>STOREm</th><td>A</td><td>&rarr;</td><td>M</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <table>
+          <caption>Control Flow</caption>
+          <tbody>
+            <tr><th>BRA</th><td>PC + I</td><td>&rarr;</td><td>PC</td></tr>
+            <tr><th>BEQ</th><td>if A=0: PC + I</td><td>&rarr;</td><td>PC</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <table class="legend">
+        <caption>Legend</caption>
+        <tbody>
+          <tr><th>PC</th><td>Program Counter</td></tr>
+          <tr><th>A</th><td>Accumulator</td></tr>
+          <tr><th>O</th><td>Torch output</td></tr>
+          <tr><th>I</th><td>Value of operand</td></tr>
+          <tr><th>M</th><td>Value at memory location I</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <h2>Emulator</h2>
