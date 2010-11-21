@@ -65,10 +65,6 @@
   text-align: center;
 }
 
-.assembler, .emulator {
-  background-color: white;
-}
-
 h1 {
   margin-bottom: 0;
 }
@@ -79,9 +75,21 @@ h2, .assembler, .emulator {
 }
 
 h2 {
+  cursor: pointer;
   background-color: #f2fbff;
-  border-bottom: none;
   margin-bottom: 0;
+  position: relative;
+}
+
+h2 span {
+  font-family: monospace;
+  position: absolute;
+  right: 12px;
+  border: 1px solid #9ee2ff;
+  color: #4ac9ff;
+  line-height: 1.2em;
+  width: 1.2em;
+  text-align: center;
 }
 
 h3 {
@@ -90,6 +98,11 @@ h3 {
 
 h3:first-child {
   margin-top: 0;
+}
+
+.assembler, .emulator {
+  background-color: white;
+  border-top: none;
 }
 
 .assembler:after, .emulator:after {

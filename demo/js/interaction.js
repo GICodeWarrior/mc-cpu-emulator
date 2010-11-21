@@ -1,4 +1,11 @@
 $(function() {
+    $('h2').click(function() {
+        var me = this;
+        $(this).next().slideToggle($(this).height() * 20, function() {
+            $(me).find('span').html($(this).is(':hidden') ? '+' : '-');
+          });
+      });
+
     $('.assembler .code textarea').auto_assemble('.assembler .listing',
                                                  '.assembler .errors',
                                                  '.assembler .code .permalink');
