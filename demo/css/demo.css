@@ -6,7 +6,7 @@
 .assembler .code textarea {
   width: 95%;
   height: 15em;
-  resize: both;
+  resize: vertical;
 }
 
 .assembler .code .permalink {
@@ -139,7 +139,7 @@ h3:first-child {
   display: block;
   height: 10em;
   overflow: auto;
-  resize: both;
+  resize: vertical;
   margin-right: 1em;
   border: 1px solid black;
 }
