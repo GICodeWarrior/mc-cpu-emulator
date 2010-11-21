@@ -18,7 +18,7 @@
 
       if (permalink) {
         var code = encodeURIComponent($(this).val());
-        $(permalink).html('<a href="?code=' + code + '">permalink</a>');
+        $(permalink).attr('href', '?code=' + code);
       }
     };
     $(this).change(change_handler);
