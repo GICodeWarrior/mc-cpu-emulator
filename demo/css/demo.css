@@ -137,7 +137,7 @@ h3:first-child {
 
 .log code {
   display: block;
-  height: 10em;
+  height: 12em;
   overflow: auto;
   resize: vertical;
   margin-right: 1em;
