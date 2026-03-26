@@ -92,15 +92,9 @@ $(function() {
 
     update_status();
 
-    var params = {};
-    var terms = window.location.search.substring(1).split('&');
-    for (var i = 0; i < terms.length; ++i) {
-      var tuple = terms[i].split('=');
-      params[tuple[0].toLowerCase()] = decodeURIComponent(tuple[1]);
-    }
-
-    if (params['code']) {
-      $('.assembler .code textarea').val(params['code']);
+    const params = new URLSearchParams(location.search);
+    if (params.get('code')) {
+      $('.assembler .code textarea').val(params.get('code'));
       $('.assembler .code textarea').trigger('change');
       $('.controls .load').trigger('click');
     }
